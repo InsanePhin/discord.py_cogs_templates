@@ -2,8 +2,10 @@
 
 import discord, asyncio, datetime, os, config
 from discord.ext import commands
+from dotenv import load_dotenv
 
-bot = commands.Bot(help_command=None, command_prefix=commands.when_mentioned_or(config.bot["default_prefix"]), intents=discord.Intents.all())
+load_dotenv(verbose=True)
+bot = commands.Bot(help_command=None, command_prefix=commands.when_mentioned_or(os.getenv("prefix")), intents=discord.Intents.all())
 
 for filename in os.listdir('modules'):
     if filename.endswith('.py'):
@@ -42,4 +44,4 @@ async def reloadall(ctx):
 async def reloadall_handler(ctx, error):
     pass
 
-bot.run(config.bot["token"])
+bot.run(os.getenv("token"))
