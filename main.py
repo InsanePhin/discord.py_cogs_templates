@@ -12,12 +12,12 @@ for filename in os.listdir('modules'):
         try:
             bot.load_extension("modules." + filename[:-3])
         except Exception as e:
-            print(f'{filename} 로드에 실패했습니다. 에러 : {e}')
+            print(f'failed loaded. file : {filename} error : {e}')
 
 
-@bot.command(aliases=['ㄹㄹㄷ', '리로드', 'ffe'])
+@bot.command(aliases=['reload', 'rl'])
 @commands.is_owner()
-async def reloadall(ctx):
+async def _reload_all(ctx):
     error_collection = []
     for file in os.listdir("modules"):
         if file.endswith(".py"):
@@ -38,7 +38,7 @@ async def reloadall(ctx):
             f"Check the {output} file"
         )
 
-    return await ctx.message.reply(f"`{len(bot.commands)}개`의 명령어를 `리로드`하였습니다.")
+    return await ctx.message.reply(f"reloaded `{len(bot.commands)}` commands.")
 
 @reloadall.error
 async def reloadall_handler(ctx, error):
