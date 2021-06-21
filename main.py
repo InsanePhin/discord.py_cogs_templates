@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 
-import discord, asyncio, datetime, os, config
+import discord, asyncio, datetime, os
 from discord.ext import commands
 
 TOKEN=# YOUR TOKEN HERE
@@ -41,7 +41,7 @@ async def _reload_all(ctx):
 
     return await ctx.message.reply(f"reloaded `{len(bot.commands)}` commands.")
 
-@reloadall.error
+@_reload_all.error
 async def reloadall_handler(ctx, error):
     pass
 
