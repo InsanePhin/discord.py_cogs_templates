@@ -9,8 +9,6 @@ class Event(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        await self.bot.change_presence(status=discord.Status.dnd ,activity=discord.Activity(type=discord.ActivityType.playing, name=f"나락으로 질주"))
-        
         print(f"⚡ Success Connected ⚡")
         print(f"// INFORMATION //")
         print(f"> User : {self.bot.user} - {self.bot.user.id}")
