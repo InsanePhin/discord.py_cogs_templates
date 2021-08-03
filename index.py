@@ -3,15 +3,15 @@
 import discord, asyncio, datetime, os
 from discord.ext import commands
 
-TOKEN=# YOUR TOKEN HERE
-PREFIX=# BOT PREFIX HERE
+TOKEN=""    # YOUR TOKEN HERE
+PREFIX=""   # BOT PREFIX HERE
 
 bot = commands.Bot(help_command=None, command_prefix=commands.when_mentioned_or(PREFIX), intents=discord.Intents.all())
 
-for filename in os.listdir('modules'):
+for filename in os.listdir('cogs'):
     if filename.endswith('.py'):
         try:
-            bot.load_extension("modules." + filename[:-3])
+            bot.load_extension("cogs." + filename[:-3])
         except Exception as e:
             print(f'failed loaded. file : {filename} error : {e}')
 
@@ -20,11 +20,11 @@ for filename in os.listdir('modules'):
 @commands.is_owner()
 async def _reload_all(ctx):
     error_collection = []
-    for file in os.listdir("modules"):
+    for file in os.listdir("cogs"):
         if file.endswith(".py"):
             name = file[:-3]
             try:
-                bot.reload_extension(f"modules.{name}")
+                bot.reload_extension(f"cogs.{name}")
             except Exception as e:
                 error_collection.append(
                     [file, e]
