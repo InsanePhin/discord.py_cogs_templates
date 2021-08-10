@@ -8,7 +8,6 @@ class Event(commands.Cog):
 
     async def on_ready(self):
         print("⚡ Success Connected ⚡")
-        print("// INFORMATION //")
         print(f"> User : {self.bot.user} - {self.bot.user.id}")
         print(f"> Server : {len(self.bot.guilds)}")
 
