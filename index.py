@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 
-import discord, asyncio, datetime, os
+import discord, datetime, os
 from discord.ext import commands
 
 TOKEN=""    # YOUR TOKEN HERE
@@ -14,7 +14,6 @@ for filename in os.listdir('cogs'):
             bot.load_extension("cogs." + filename[:-3])
         except Exception as e:
             print(f'failed loaded. file : {filename} error : {e}')
-
 
 @bot.command(aliases=['reload', 'rl'])
 @commands.is_owner()
