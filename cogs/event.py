@@ -6,6 +6,7 @@ class Event(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    @command.Cog.listener()
     async def on_ready(self):
         print("⚡ Success Connected ⚡")
         print(f"> User : {self.bot.user} - {self.bot.user.id}")
