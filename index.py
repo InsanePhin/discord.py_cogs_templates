@@ -8,7 +8,7 @@ PREFIX=""   # BOT PREFIX HERE
 
 bot = commands.Bot(help_command=None, command_prefix=commands.when_mentioned_or(PREFIX), intents=discord.Intents.all())
 
-bot.load_extension("Jishaku")
+bot.load_extension("jishaku")
 for filename in os.listdir('cogs'):
     if filename.endswith('.py'):
         try:
