@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 
-import discord, datetime, os
+import discord, os
 from discord.ext import commands
 
 TOKEN=""    # YOUR TOKEN HERE
@@ -31,8 +31,7 @@ async def _reload_all(ctx):
 
     if error_collection:
         output = "\n".join(
-            [f"**{g[0]}**" for g in error_collection]
-        
+            [f"**{g[0]}**" for g in error_collection]   
         )
         return await ctx.send(
             f"Check the {output} file"
