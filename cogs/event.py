@@ -6,13 +6,11 @@ class Event(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.listener()
     async def on_ready(self):
-        print(f"⚡ Success Connected ⚡")
-        print(f"// INFORMATION //")
+        print("⚡ Success Connected ⚡")
+        print("// INFORMATION //")
         print(f"> User : {self.bot.user} - {self.bot.user.id}")
         print(f"> Server : {len(self.bot.guilds)}")
-        
 
 def setup(bot):
     bot.add_cog(Event(bot))
