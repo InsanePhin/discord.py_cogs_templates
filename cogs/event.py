@@ -1,6 +1,5 @@
 #-*- coding:utf-8 -*-
 
-import discord, asyncio, requests, os
 from discord.ext import commands
 
 class Event(commands.Cog):
